@@ -233,41 +233,32 @@ Pengujian mencakup 120 sesi otonom yang terbagi rata ke dalam empat suite beban 
 
 ### 4.3 Formulasi Metrik Evaluasi Kinerja
 
-Evaluasi kuantitatif diukur melalui metrik formal berikut:
+Evaluasi kuantitatif diukur melalui metrik formal:
 
-- **Task Success Rate (TSR):** Rasio sesi di mana artefak final memenuhi 100% spesifikasi fungsional dan lulus seluruh pengujian tanpa intervensi manusia.
+- **Task Success Rate (\(TSR\)):** Rasio sesi di mana artefak final memenuhi 100% spesifikasi fungsional dan lulus seluruh uji fisik tanpa intervensi manusia:
 
   $$
   TSR = \frac{N_{\text{success}}}{N_{\text{total}}}
   $$
 
-- **Test Assertion Tampering Rate (TATR):** Persentase sesi di mana agen tertangkap memodifikasi, mengomentari, atau menghapus blok asersi pengujian demi meloloskan eksekusi.
+- **Test Assertion Tampering Rate (\(TATR\)):** Persentase sesi di mana agen tertangkap memodifikasi, mengomentari, atau menghapus blok asersi pengujian demi meloloskan eksekusi:
 
   $$
-  TATR = \frac{N_{\text{tampered}}}{N_{\text{sessions with failing tests}}}
+  TATR = \frac{N_{\text{tampered}}}{N_{\text{sessions\_with\_failing\_tests}}}
   $$
 
-- **Premature Completion Index (PCI):** Rasio deklarasi penyelesaian tugas yang dipancarkan sebelum seluruh kriteria *Definition of Done* (DoD) terverifikasi secara fisik.
+- **Premature Completion Index (\(PCI\)):** Rasio deklarasi tugas selesai yang dipancarkan sebelum seluruh kriteria *Definition of Done* (DoD) terverifikasi secara fisik.
 
-  $$
-  PCI = \frac{N_{\text{premature completion}}}{N_{\text{total completion declarations}}}
-  $$
-
-- **Same-Soul Correlated Error Rate (SSER):** Frekuensi ketika reviewer dalam proses anak menyetujui kesalahan logika kritis yang dihasilkan oleh agen pembangun dari keluarga atau model yang sama.
+- **Same-Soul Correlated Error Rate (\(SSER\)):** Frekuensi di mana reviewer proses anak menyetujui galat logika kritis yang dihasilkan agen pembangun sekeluarga:
 
   $$
   SSER = P(\text{Reviewer Approves} \mid \text{Builder Error})
   $$
 
-- **AST Blast Radius Spill (BRS):** Persentase mutasi token kode yang terjadi di luar batas closure dependensi fungsi target.
+- **AST Blast Radius Spill (\(BRS\)):** Persentase mutasi token kode di luar batas closure dependensi fungsi target:
 
   $$
-  BRS =
-  \frac{
-    \left|V_{\text{mutated}} \setminus \mathcal{B}(S_{\Delta})\right|
-  }{
-    \left|V_{\text{mutated}}\right|
-  }
+  BRS = \frac{\left|V_{\text{mutated}} \setminus \mathcal{B}(S_{\Delta})\right|}{\left|V_{\text{mutated}}\right|}
   $$
 
 ### 4.4 Empat Kelompok Uji Komparatif
